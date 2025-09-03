@@ -14,7 +14,7 @@ export default function App() {
   const [isModalOpen, setModalOpen] = useState(false)
 
   return (
-    <div className="font-sans antialiased text-white bg-black min-h-screen relative overflow-x-clip">
+    <div className="font-sans antialiased text-white bg-black relative overflow-clip">
       <div className="bg-animated -z-10" />
 
       <header className="fixed w-full z-30 bg-black/60 backdrop-blur border-b border-gray-900">
@@ -22,19 +22,19 @@ export default function App() {
           <a href="#hero" className="text-white font-bold tracking-wide text-lg">Butlr</a>
           <nav className="flex gap-4 items-center text-sm">
             <a href="#features" className="hover:opacity-90">Features</a>
-            <button onClick={() => setModalOpen(true)} className="px-4 py-2 rounded bg-white text-black font-semibold hover:opacity-90">Get in touch</button>
+            <button onClick={() => setModalOpen(true)} className="px-4 py-2 rounded-full bg-white text-black font-semibold hover:opacity-90">Get in touch</button>
           </nav>
         </div>
       </header>
 
       <main className="pt-28">
-        <section id="hero" className="max-w-6xl mx-auto px-6 py-28 grid md:grid-cols-2 gap-12 items-center relative">
+        <section id="hero" className="max-w-6xl mx-auto px-6 py-28 grid md:grid-cols-1 gap-12 items-center relative">
           <div>
             <motion.h1 
               initial={{ opacity: 0, y: 50, scale: 0.8 }} 
               animate={{ opacity: 1, y: 0, scale: 1 }} 
               transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="text-6xl md:text-8xl xl:text-[10rem] leading-[0.85] font-black tracking-tighter hero-font"
+              className="text-6xl md:text-8xl xl:text-[10rem] leading-[0.85] font-black tracking-tighter hero-font pr-4"
             >
               <motion.span 
                 className="rainbow-text-premium block relative"
@@ -83,7 +83,7 @@ export default function App() {
               transition={{ duration: 0.8, delay: 1.0 }}
               className="mt-8 max-w-xl text-xl text-gray-300 leading-relaxed"
             >
-              Butlr centralises Students' Union services into just one platform — clubs, governance, activities and admin tools.
+              Butlr centralises Students' Union services into just one platform. From clubs and governance to activities and admin tools.
             </motion.p>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -109,14 +109,6 @@ export default function App() {
               ))}
             </motion.div>
           </div>
-          <motion.div 
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.2, delay: 0.8 }}
-            className="flex justify-center"
-          >
-            <PhoneMockup src={goodAfternoon} alt="App preview" />
-          </motion.div>
         </section>
 
         <LogoMarquee />
@@ -146,18 +138,16 @@ export default function App() {
           />
         </div>
 
-        <section className="py-24 bg-gradient-to-r from-purple-900 via-indigo-900 to-black">
-          <div className="max-w-4xl mx-auto px-6 text-center">
-            <h2 className="text-4xl font-bold">Shape the future of Student Unions</h2>
-            <p className="mt-3 text-gray-300">Join Butlr and bring your campus to life with one digital platform.</p>
-            <button onClick={() => setModalOpen(true)} className="mt-8 bg-white text-black px-6 py-3 rounded-lg font-semibold hover:opacity-90">Request Demo</button>
+        <section className="py-24">
+          <div className="max-w-4xl mx-auto rounded-3xl p-12 text-center bg-gradient-to-r from-orange-700 via-amber-600 to-red-700">
+            <h2 className="text-4xl font-bold">Interested in working with Butlr?</h2>
+            <p className="mt-3 text-gray-200 max-w-2xl mx-auto">Contact us to arrange a demo, pilot or partnership — we’d love to talk.</p>
+            <button onClick={() => setModalOpen(true)} className="mt-8 bg-white text-black px-6 py-3 rounded-full font-semibold hover:opacity-90">Request Demo</button>
           </div>
         </section>
 
-        <footer className="max-w-6xl mx-auto px-6 py-12 text-center text-gray-500">© {new Date().getFullYear()} Butlr — Your Campus Assistant</footer>
+        <footer className="max-w-6xl mx-auto px-6 py-8 text-center text-gray-500">© {new Date().getFullYear()} Butlr — Your Campus Assistant</footer>
       </main>
-
-      <FloatingCTA onClick={() => setModalOpen(true)} />
 
       {isModalOpen && <Modal onClose={() => setModalOpen(false)} endpoint={'/api/lead'} />}
     </div>
