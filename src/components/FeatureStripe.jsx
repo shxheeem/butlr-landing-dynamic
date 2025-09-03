@@ -16,3 +16,6 @@ export default function FeatureStripe({ eyebrow, title, text, image, flip }) {
     </section>
   )
 }
+
+  )
+}
