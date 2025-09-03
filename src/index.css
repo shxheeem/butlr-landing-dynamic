@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; background: #000; }
+
+.bg-animated {
+  position: absolute;
+  inset: -20% -20% -20% -20%;
+  background: radial-gradient(60% 50% at 20% 20%, rgba(168,85,247,0.25), transparent 60%),
+              radial-gradient(60% 50% at 80% 30%, rgba(59,130,246,0.25), transparent 60%),
+              radial-gradient(60% 50% at 50% 80%, rgba(14,165,233,0.25), transparent 60%);
+  filter: blur(40px);
+  animation: bg-fade 16s linear infinite alternate;
+}
+@keyframes bg-fade {
+  0% { transform: translateY(0) scale(1); opacity: .8; }
+  100% { transform: translateY(-4%) scale(1.05); opacity: 1; }
+}
+
+.marquee { display: flex; gap: 4rem; animation: scroll 22s linear infinite; }
+@keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+.rainbow-text {
+  background: linear-gradient(90deg,#ff004d,#ff7a00,#ffef00,#00d084,#00b4ff,#7a00ff,#ff004d);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rainbow 6s linear infinite;
+  font-weight: 800;
+  display: inline-block;
+}
+@keyframes rainbow { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
