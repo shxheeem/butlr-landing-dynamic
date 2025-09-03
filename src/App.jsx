@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import Modal from './components/Modal'
-import FeatureStripe from './components/FeatureStripe'
+import FeatureGrid from './components/FeatureGrid'
 import PhoneMockup from './components/PhoneMockup'
 import LogoMarquee from './components/LogoMarquee'
 import MetricsStrip from './components/MetricsStrip'
@@ -14,8 +14,10 @@ export default function App() {
   const [isModalOpen, setModalOpen] = useState(false)
 
   return (
-    <div className="font-sans antialiased text-white bg-black relative overflow-clip">
-      <div className="bg-animated -z-10" />
+    <div className="font-sans antialiased text-white bg-black relative">
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, overflow: 'hidden', zIndex: -1 }}>
+        <div className="bg-animated" />
+      </div>
 
       <header className="fixed w-full z-30 bg-black/60 backdrop-blur border-b border-gray-900">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -60,12 +62,12 @@ export default function App() {
                 className="rainbow-text-premium block relative"
                 initial={{ 
                   opacity: 0, 
-                  x: -40,
+                  y: 50,
                   scale: 0.9
                 }}
                 animate={{ 
                   opacity: 1, 
-                  x: 0,
+                  y: 0,
                   scale: 1
                 }}
                 transition={{ 
@@ -97,31 +99,9 @@ export default function App() {
           </div>
         </section>
 
-        <div id="features">
-          <FeatureStripe
-            eyebrow="Governance"
-            title="Close the gap between students and SU decisions"
-            text="Enable direct participation, voting and transparent communication between students and the Students' Union."
-            image={studentUnion}
-            flip={false}
-          />
-          <FeatureStripe
-            eyebrow="Activities"
-            title="Make campus life engaging and measurable"
-            text="Gamify participation with points, badges and analytics that highlight what students value most."
-            image={goodAfternoon}
-            flip={true}
-          />
-          <FeatureStripe
-            eyebrow="Admin"
-            title="One dashboard for organisers & teams"
-            text="Content, events, reporting and permissions — streamlined for SU teams."
-            image={studentUnion}
-            flip={false}
-          />
-        </div>
+        <FeatureGrid />
 
-        <section className="py-24">
+        <section className="py-12">
           <div className="max-w-4xl mx-auto rounded-3xl p-12 text-center bg-gradient-to-r from-orange-700 via-amber-600 to-red-700">
             <h2 className="text-4xl font-bold">Interested in working with Butlr?</h2>
             <p className="mt-3 text-gray-200 max-w-2xl mx-auto">Contact us to arrange a demo, pilot or partnership — we’d love to talk.</p>

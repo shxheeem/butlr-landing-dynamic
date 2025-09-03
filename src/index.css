@@ -2,29 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body, #root { 
-  background: #000; 
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+html, body { 
+  background: #000;
+}
+
+#root {
+  background: #000;
 }
 
 .hero-font {
-  font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-variation-settings: 'wght' 900;
-  letter-spacing: -0.05em;
+  font-family: 'Luckiest Guy', cursive;
+  letter-spacing: -0.01em;
 }
 
 .bg-animated {
   position: absolute;
   inset: -20% -20% -20% -20%;
-  background: radial-gradient(60% 50% at 20% 20%, rgba(168,85,247,0.25), transparent 60%),
-              radial-gradient(60% 50% at 80% 30%, rgba(59,130,246,0.25), transparent 60%),
-              radial-gradient(60% 50% at 50% 80%, rgba(14,165,233,0.25), transparent 60%);
-  filter: blur(40px);
-  animation: bg-fade 16s linear infinite alternate;
+  background: radial-gradient(60% 50% at 20% 20%, rgba(255, 0, 128, 0.2), transparent 70%),
+              radial-gradient(60% 50% at 80% 30%, rgba(255, 107, 0, 0.25), transparent 70%),
+              radial-gradient(60% 50% at 50% 80%, rgba(255, 204, 0, 0.2), transparent 70%);
+  filter: blur(50px);
+  animation: bg-fade 12s linear infinite alternate;
 }
 @keyframes bg-fade {
-  0% { transform: translateY(0) scale(1); opacity: .8; }
-  100% { transform: translateY(-4%) scale(1.05); opacity: 1; }
+  0% { transform: translateY(-2%) scale(1); opacity: .7; }
+  100% { transform: translateY(-6%) scale(1.1); opacity: 1; }
 }
 
 .marquee { display: flex; gap: 4rem; animation: scroll 22s linear infinite; }
@@ -33,31 +35,24 @@ html, body, #root {
 .rainbow-text-premium {
   background: linear-gradient(
     110deg, 
-    #ff0080 0%, 
-    #ff4d6d 8%, 
-    #ff8a00 16%, 
-    #ffbe0b 24%, 
-    #8ac926 32%, 
-    #52b788 40%, 
-    #0077b6 48%, 
-    #3a86ff 56%, 
-    #7209b7 64%, 
-    #a663cc 72%, 
-    #f72585 80%, 
-    #ff006e 88%, 
-    #ff0080 100%
+    #ff0080, 
+    #ff7b00, 
+    #ffea00, 
+    #00ff80, 
+    #0080ff, 
+    #8000ff,
+    #ff0080
   );
-  background-size: 600% 600%;
+  background-size: 400% 400%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: rainbow-flow 12s ease-in-out infinite;
-  font-weight: 900;
+  animation: rainbow-flow 8s ease-in-out infinite;
   display: inline-block;
   position: relative;
   text-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
-  filter: drop-shadow(0 0 30px rgba(168, 85, 247, 0.3)) 
-          drop-shadow(0 0 60px rgba(59, 130, 246, 0.2));
+  filter: drop-shadow(0 0 30px rgba(255, 0, 128, 0.3)) 
+          drop-shadow(0 0 60px rgba(255, 107, 0, 0.2));
 }
 
 .rainbow-text-premium::before {
@@ -68,13 +63,11 @@ html, body, #root {
   background-clip: text;
   -webkit-background-clip: text;
   filter: blur(2px);
-  opacity: 0.6;
+  opacity: 0.7;
   z-index: -1;
 }
 
 @keyframes rainbow-flow { 
   0%, 100% { background-position: 0% 50%; }
-  25% { background-position: 100% 50%; }
-  50% { background-position: 200% 50%; }
-  75% { background-position: 300% 50%; }
+  50% { background-position: 100% 50%; }
 }
