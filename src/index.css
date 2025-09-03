@@ -31,4 +31,17 @@ html, body, #root { height: 100%; background: #000; }
   font-weight: 800;
   display: inline-block;
 }
+
+.rainbow-text-enhanced {
+  background: linear-gradient(135deg, #ff004d 0%, #ff7a00 15%, #ffef00 30%, #00d084 45%, #00b4ff 60%, #7a00ff 75%, #ff004d 90%, #ff7a00 100%);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 900;
+  display: inline-block;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.4));
+}
+
 @keyframes rainbow { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }

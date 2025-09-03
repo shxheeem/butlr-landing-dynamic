@@ -30,8 +30,28 @@ export default function App() {
       <main className="pt-28">
         <section id="hero" className="max-w-6xl mx-auto px-6 py-28 grid md:grid-cols-2 gap-12 items-center relative">
           <div>
-            <motion.h1 initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="text-5xl md:text-7xl leading-[1.05]">
-              <span className="rainbow-text">Your Campus Assistant</span>
+            <motion.h1 
+              initial={{ opacity: 0, y: 50, scale: 0.8 }} 
+              animate={{ opacity: 1, y: 0, scale: 1 }} 
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-6xl md:text-8xl xl:text-9xl leading-[0.95] font-black tracking-tight"
+            >
+              <motion.span 
+                className="rainbow-text-enhanced block"
+                initial={{ backgroundPosition: "0% 50%" }}
+                animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+              >
+                Your Campus
+              </motion.span>
+              <motion.span 
+                className="rainbow-text-enhanced block"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
+                Assistant
+              </motion.span>
             </motion.h1>
             <p className="mt-6 max-w-xl text-lg text-gray-300">
               Butlr centralises Students' Union services into just one platform — clubs, governance, activities and admin tools.
