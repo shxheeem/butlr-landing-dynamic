@@ -2,10 +2,13 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import Modal from './components/Modal'
 import FeatureStripe from './components/FeatureStripe'
+import PhoneMockup from './components/PhoneMockup'
 import LogoMarquee from './components/LogoMarquee'
 import MetricsStrip from './components/MetricsStrip'
 import FloatingCTA from './components/FloatingCTA'
 
+import goodAfternoon from './assets/good-afternoon.png'
+import studentUnion from './assets/student-union.png'
 
 export default function App() {
   const [isModalOpen, setModalOpen] = useState(false)
@@ -25,8 +28,8 @@ export default function App() {
       </header>
 
       <main className="pt-28">
-        <section id="hero" className="max-w-6xl mx-auto px-6 py-32 text-center relative">
-          <div className="max-w-5xl mx-auto">
+        <section id="hero" className="max-w-6xl mx-auto px-6 py-28 grid md:grid-cols-2 gap-12 items-center relative">
+          <div>
             <motion.h1 
               initial={{ opacity: 0, y: 50, scale: 0.8 }} 
               animate={{ opacity: 1, y: 0, scale: 1 }} 
@@ -78,151 +81,76 @@ export default function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.0 }}
-              className="mt-8 max-w-2xl mx-auto text-xl text-gray-300 leading-relaxed"
+              className="mt-8 max-w-xl text-xl text-gray-300 leading-relaxed"
             >
-              The AI-powered platform that transforms how Students' Unions engage with their communities. One unified system for governance, activities, and campus life.
+              Butlr centralises Students' Union services into just one platform — clubs, governance, activities and admin tools.
             </motion.p>
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.2 }}
-              className="mt-10 flex gap-4 justify-center flex-wrap"
+              className="mt-10 flex gap-4"
             >
-              <a href="#features" className="px-6 py-3 rounded-lg text-sm border border-gray-700 hover:bg-gray-900 transition-all duration-300 hover:border-gray-500">Explore features</a>
-              <button onClick={() => setModalOpen(true)} className="px-6 py-3 rounded-lg text-sm bg-white text-black hover:opacity-90 transition-all duration-300 hover:scale-105">Request Demo</button>
+              <a href="#features" className="px-5 py-3 rounded-lg text-sm border border-gray-700 hover:bg-gray-900">Explore features</a>
+              <button onClick={() => setModalOpen(true)} className="px-5 py-3 rounded-lg text-sm bg-white text-black hover:opacity-90">Request Demo</button>
             </motion.div>
 
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.4 }}
-              className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
+              className="mt-12 grid grid-cols-3 gap-4 max-w-xl"
             >
-              {[
-                ['🎯', 'Unified Platform', 'All SU services in one place'],
-                ['🤖', 'AI-Powered', 'Smart insights & automation'],
-                ['📊', 'Data-Driven', 'Real-time analytics & reporting']
-              ].map(([icon, title, desc]) => (
-                <motion.div 
-                  key={title}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  transition={{ duration: 0.2 }}
-                  className="rounded-xl border border-gray-800 bg-gradient-to-br from-gray-900/50 to-black/80 backdrop-blur-sm px-6 py-6 text-center hover:border-gray-700 transition-all duration-300"
-                >
-                  <div className="text-3xl mb-3">{icon}</div>
-                  <div className="text-white font-bold text-lg mb-2">{title}</div>
-                  <div className="text-gray-400 text-sm">{desc}</div>
-                </motion.div>
+              {[['One', 'Platform'], ['AI-ready', 'Insights'], ['24/7', 'Engagement']].map(([k, v]) => (
+                <div key={k} className="rounded-xl border border-gray-900 bg-black/60 px-4 py-3 text-center">
+                  <div className="text-white font-bold">{k}</div>
+                  <div className="text-gray-400 text-xs">{v}</div>
+                </div>
               ))}
             </motion.div>
-
-            {/* Floating Elements */}
-            <div className="absolute top-20 left-10 opacity-20">
-              <motion.div
-                animate={{ 
-                  y: [0, -20, 0],
-                  rotate: [0, 5, 0]
-                }}
-                transition={{ 
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 blur-xl"
-              />
-            </div>
-            <div className="absolute top-40 right-20 opacity-20">
-              <motion.div
-                animate={{ 
-                  y: [0, 20, 0],
-                  rotate: [0, -5, 0]
-                }}
-                transition={{ 
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 2
-                }}
-                className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 blur-xl"
-              />
-            </div>
           </div>
+          <motion.div 
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.2, delay: 0.8 }}
+            className="flex justify-center"
+          >
+            <PhoneMockup src={goodAfternoon} alt="App preview" />
+          </motion.div>
         </section>
 
         <LogoMarquee />
         <MetricsStrip />
 
         <div id="features">
-          <section className="py-24 bg-gradient-to-br from-gray-900 to-black">
-            <div className="max-w-6xl mx-auto px-6">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold mb-4">Transform Your Students' Union</h2>
-                <p className="text-gray-300 text-lg max-w-2xl mx-auto">Discover how Butlr revolutionizes campus engagement with cutting-edge technology</p>
-              </div>
-              
-              <div className="grid md:grid-cols-3 gap-8">
-                {[
-                  {
-                    icon: '🗳️',
-                    title: 'Democratic Governance',
-                    description: 'Enable transparent voting, policy discussions, and direct student participation in SU decisions.',
-                    features: ['Digital voting systems', 'Policy feedback loops', 'Transparent decision tracking']
-                  },
-                  {
-                    icon: '🎉',
-                    title: 'Engaging Activities',
-                    description: 'Gamify campus life with points, badges, and social features that boost student participation.',
-                    features: ['Event management', 'Social networking', 'Achievement systems']
-                  },
-                  {
-                    icon: '📈',
-                    title: 'Smart Analytics',
-                    description: 'AI-powered insights help SU teams understand student needs and optimize their services.',
-                    features: ['Real-time dashboards', 'Predictive analytics', 'Custom reporting']
-                  }
-                ].map((feature, index) => (
-                  <motion.div
-                    key={feature.title}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.2 }}
-                    viewport={{ once: true }}
-                    className="bg-black/40 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 hover:border-gray-700 transition-all duration-300 group"
-                  >
-                    <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">{feature.icon}</div>
-                    <h3 className="text-xl font-bold mb-3 text-white">{feature.title}</h3>
-                    <p className="text-gray-300 mb-6 leading-relaxed">{feature.description}</p>
-                    <ul className="space-y-2">
-                      {feature.features.map((item, i) => (
-                        <li key={i} className="text-sm text-gray-400 flex items-center">
-                          <span className="w-1.5 h-1.5 bg-indigo-400 rounded-full mr-3"></span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </section>
+          <FeatureStripe
+            eyebrow="Governance"
+            title="Close the gap between students and SU decisions"
+            text="Enable direct participation, voting and transparent communication between students and the Students' Union."
+            image={studentUnion}
+            flip={false}
+          />
+          <FeatureStripe
+            eyebrow="Activities"
+            title="Make campus life engaging and measurable"
+            text="Gamify participation with points, badges and analytics that highlight what students value most."
+            image={goodAfternoon}
+            flip={true}
+          />
+          <FeatureStripe
+            eyebrow="Admin"
+            title="One dashboard for organisers & teams"
+            text="Content, events, reporting and permissions — streamlined for SU teams."
+            image={studentUnion}
+            flip={false}
+          />
         </div>
 
-        <section className="py-24 bg-gradient-to-r from-purple-900 via-indigo-900 to-black relative overflow-hidden">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%239C92AC%22 fill-opacity=%220.05%22%3E%3Ccircle cx=%2230%22 cy=%2230%22 r=%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+        <section className="py-24 bg-gradient-to-r from-purple-900 via-indigo-900 to-black">
           <div className="max-w-4xl mx-auto px-6 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Ready to Transform Your Campus?</h2>
-              <p className="mt-4 text-gray-300 text-lg max-w-2xl mx-auto">Join forward-thinking Students' Unions who are already using Butlr to create more engaged, connected campus communities.</p>
-              <div className="mt-8 flex gap-4 justify-center flex-wrap">
-                <button onClick={() => setModalOpen(true)} className="bg-white text-black px-8 py-4 rounded-lg font-semibold hover:opacity-90 transition-all duration-300 hover:scale-105">Request Demo</button>
-                <a href="#features" className="border border-white/30 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-all duration-300">Learn More</a>
-              </div>
-            </motion.div>
+            <h2 className="text-4xl font-bold">Shape the future of Student Unions</h2>
+            <p className="mt-3 text-gray-300">Join Butlr and bring your campus to life with one digital platform.</p>
+            <button onClick={() => setModalOpen(true)} className="mt-8 bg-white text-black px-6 py-3 rounded-lg font-semibold hover:opacity-90">Request Demo</button>
           </div>
         </section>
 
