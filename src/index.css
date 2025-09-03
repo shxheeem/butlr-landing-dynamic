@@ -2,7 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body, #root { height: 100%; background: #000; }
+html, body, #root { 
+  height: 100%; 
+  background: #000; 
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.hero-font {
+  font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-variation-settings: 'wght' 900;
+  letter-spacing: -0.05em;
+}
 
 .bg-animated {
   position: absolute;
@@ -21,27 +31,51 @@ html, body, #root { height: 100%; background: #000; }
 .marquee { display: flex; gap: 4rem; animation: scroll 22s linear infinite; }
 @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-.rainbow-text {
-  background: linear-gradient(90deg,#ff004d,#ff7a00,#ffef00,#00d084,#00b4ff,#7a00ff,#ff004d);
-  background-size: 200% 200%;
+.rainbow-text-premium {
+  background: linear-gradient(
+    110deg, 
+    #ff0080 0%, 
+    #ff4d6d 8%, 
+    #ff8a00 16%, 
+    #ffbe0b 24%, 
+    #8ac926 32%, 
+    #52b788 40%, 
+    #0077b6 48%, 
+    #3a86ff 56%, 
+    #7209b7 64%, 
+    #a663cc 72%, 
+    #f72585 80%, 
+    #ff006e 88%, 
+    #ff0080 100%
+  );
+  background-size: 600% 600%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: rainbow 6s linear infinite;
-  font-weight: 800;
-  display: inline-block;
-}
-
-.rainbow-text-enhanced {
-  background: linear-gradient(135deg, #ff004d 0%, #ff7a00 15%, #ffef00 30%, #00d084 45%, #00b4ff 60%, #7a00ff 75%, #ff004d 90%, #ff7a00 100%);
-  background-size: 400% 400%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  animation: rainbow-flow 12s ease-in-out infinite;
   font-weight: 900;
   display: inline-block;
-  text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
-  filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.4));
+  position: relative;
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+  filter: drop-shadow(0 0 30px rgba(168, 85, 247, 0.3)) 
+          drop-shadow(0 0 60px rgba(59, 130, 246, 0.2));
 }
 
-@keyframes rainbow { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+.rainbow-text-premium::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  background-clip: text;
+  -webkit-background-clip: text;
+  filter: blur(2px);
+  opacity: 0.6;
+  z-index: -1;
+}
+
+@keyframes rainbow-flow { 
+  0%, 100% { background-position: 0% 50%; }
+  25% { background-position: 100% 50%; }
+  50% { background-position: 200% 50%; }
+  75% { background-position: 300% 50%; }
+}

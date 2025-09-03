@@ -33,46 +33,90 @@ export default function App() {
             <motion.h1 
               initial={{ opacity: 0, y: 50, scale: 0.8 }} 
               animate={{ opacity: 1, y: 0, scale: 1 }} 
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-6xl md:text-8xl xl:text-9xl leading-[0.95] font-black tracking-tight"
+              transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="text-6xl md:text-8xl xl:text-[10rem] leading-[0.85] font-black tracking-tighter hero-font"
             >
               <motion.span 
-                className="rainbow-text-enhanced block"
-                initial={{ backgroundPosition: "0% 50%" }}
-                animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                className="rainbow-text-premium block relative"
+                initial={{ 
+                  backgroundPosition: "0% 50%",
+                  opacity: 0,
+                  y: 30
+                }}
+                animate={{ 
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                  opacity: 1,
+                  y: 0
+                }}
+                transition={{ 
+                  backgroundPosition: { duration: 12, repeat: Infinity, ease: "linear" },
+                  opacity: { duration: 1.2, delay: 0.2 },
+                  y: { duration: 1.2, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }
+                }}
               >
                 Your Campus
               </motion.span>
               <motion.span 
-                className="rainbow-text-enhanced block"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
+                className="rainbow-text-premium block relative"
+                initial={{ 
+                  opacity: 0, 
+                  x: -40,
+                  scale: 0.9
+                }}
+                animate={{ 
+                  opacity: 1, 
+                  x: 0,
+                  scale: 1
+                }}
+                transition={{ 
+                  duration: 1.2, 
+                  delay: 0.6,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }}
               >
                 Assistant
               </motion.span>
             </motion.h1>
-            <p className="mt-6 max-w-xl text-lg text-gray-300">
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
+              className="mt-8 max-w-xl text-xl text-gray-300 leading-relaxed"
+            >
               Butlr centralises Students' Union services into just one platform — clubs, governance, activities and admin tools.
-            </p>
-            <div className="mt-8 flex gap-4">
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+              className="mt-10 flex gap-4"
+            >
               <a href="#features" className="px-5 py-3 rounded-lg text-sm border border-gray-700 hover:bg-gray-900">Explore features</a>
               <button onClick={() => setModalOpen(true)} className="px-5 py-3 rounded-lg text-sm bg-white text-black hover:opacity-90">Request Demo</button>
-            </div>
+            </motion.div>
 
-            <div className="mt-10 grid grid-cols-3 gap-4 max-w-xl">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.4 }}
+              className="mt-12 grid grid-cols-3 gap-4 max-w-xl"
+            >
               {[['One', 'Platform'], ['AI-ready', 'Insights'], ['24/7', 'Engagement']].map(([k, v]) => (
                 <div key={k} className="rounded-xl border border-gray-900 bg-black/60 px-4 py-3 text-center">
                   <div className="text-white font-bold">{k}</div>
                   <div className="text-gray-400 text-xs">{v}</div>
                 </div>
               ))}
-            </div>
+            </motion.div>
           </div>
-          <div className="flex justify-center">
+          <motion.div 
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.2, delay: 0.8 }}
+            className="flex justify-center"
+          >
             <PhoneMockup src={goodAfternoon} alt="App preview" />
-          </div>
+          </motion.div>
         </section>
 
         <LogoMarquee />
