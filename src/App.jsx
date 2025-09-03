@@ -28,7 +28,7 @@ export default function App() {
       </header>
 
       <main className="pt-28">
-        <section id="hero" className="max-w-6xl mx-auto px-6 py-28 grid md:grid-cols-1 gap-12 items-center relative">
+        <section id="hero" className="max-w-6xl mx-auto px-6 min-h-screen flex flex-col justify-center">
           <div>
             <motion.h1 
               initial={{ opacity: 0, y: 50, scale: 0.8 }} 
@@ -94,25 +94,8 @@ export default function App() {
               <a href="#features" className="px-5 py-3 rounded-lg text-sm border border-gray-700 hover:bg-gray-900">Explore features</a>
               <button onClick={() => setModalOpen(true)} className="px-5 py-3 rounded-lg text-sm bg-white text-black hover:opacity-90">Request Demo</button>
             </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.4 }}
-              className="mt-12 grid grid-cols-3 gap-4 max-w-xl"
-            >
-              {[['One', 'Platform'], ['AI-ready', 'Insights'], ['24/7', 'Engagement']].map(([k, v]) => (
-                <div key={k} className="rounded-xl border border-gray-900 bg-black/60 px-4 py-3 text-center">
-                  <div className="text-white font-bold">{k}</div>
-                  <div className="text-gray-400 text-xs">{v}</div>
-                </div>
-              ))}
-            </motion.div>
           </div>
         </section>
-
-        <LogoMarquee />
-        <MetricsStrip />
 
         <div id="features">
           <FeatureStripe
