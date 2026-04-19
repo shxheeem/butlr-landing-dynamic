@@ -16,32 +16,32 @@ export default function RewardsMock() {
 
       <div className="px-4 flex-1 space-y-3 overflow-hidden">
         <div className="rounded-2xl p-4 text-center" style={{ background: 'var(--ink)', color: 'var(--on-ink)' }}>
-          <div className="text-[10px] mono opacity-70 mb-1">BUTLR POINTS</div>
+          <div className="text-[10px] opacity-70 mb-1">BUTLR POINTS</div>
           <div className="display text-[34px] font-bold">1,240</div>
           <div className="mt-2 h-1.5 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.12)' }}>
             <div className="h-full rounded-full" style={{ width: '68%', background: 'var(--accent)' }} />
           </div>
-          <div className="text-[10px] mono opacity-60 mt-1.5">360 pts to Gold tier</div>
+          <div className="text-[10px] opacity-60 mt-1.5">360 pts to Gold tier</div>
         </div>
 
         <div className="grid grid-cols-2 gap-2">
           <div className="card p-2.5">
-            <div className="text-[10px] mono text-mute">STREAK</div>
+            <div className="text-[10px] text-mute">STREAK</div>
             <div className="text-[18px] display font-bold mt-0.5">🔥 12 days</div>
           </div>
           <div className="card p-2.5">
-            <div className="text-[10px] mono text-mute">RANK</div>
-            <div className="text-[18px] display font-bold mt-0.5">#38 <span className="text-[10px] mono text-mute font-normal">of 21k</span></div>
+            <div className="text-[10px] text-mute">RANK</div>
+            <div className="text-[18px] display font-bold mt-0.5">#38 <span className="text-[10px] text-mute font-normal">of 21k</span></div>
           </div>
         </div>
 
         <div className="card p-3">
-          <div className="text-[10px] mono text-mute mb-2">BADGES</div>
+          <div className="text-[10px] text-mute mb-2">BADGES</div>
           <div className="grid grid-cols-4 gap-2">
             {badges.map((b) => (
               <div key={b.n} className="text-center">
                 <div className="w-full aspect-square rounded-xl grid place-items-center text-white font-bold text-xs" style={{ background: b.c }}>★</div>
-                <div className="text-[8px] mono text-mute mt-1 truncate">{b.n}</div>
+                <div className="text-[8px] text-mute mt-1 truncate">{b.n}</div>
               </div>
             ))}
           </div>

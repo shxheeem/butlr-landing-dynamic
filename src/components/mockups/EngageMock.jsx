@@ -10,20 +10,20 @@ export default function EngageMock() {
 
       <div className="px-4 pt-1 flex-1 space-y-3 overflow-hidden">
         <div className="rounded-2xl p-3" style={{ background: 'var(--accent-3)', color: 'var(--on-ink)' }}>
-          <div className="text-[10px] mono opacity-80 mb-1">ELECTIONS · OPEN</div>
+          <div className="text-[10px] opacity-80 mb-1">ELECTIONS · OPEN</div>
           <div className="text-[13px] font-bold mb-2">SU President 2026</div>
           <div className="grid grid-cols-3 gap-1.5">
             {['Ada','Ben','Priya'].map((n, i) => (
               <div key={n} className="rounded-lg p-2 text-center" style={{ background: 'rgba(255,255,255,0.14)' }}>
                 <div className="text-[11px] font-semibold">{n}</div>
-                <div className="text-[9px] mono opacity-70 mt-0.5">{[42,31,27][i]}%</div>
+                <div className="text-[9px] opacity-70 mt-0.5">{[42,31,27][i]}%</div>
               </div>
             ))}
           </div>
         </div>
 
         <div className="card p-3">
-          <div className="text-[10px] mono text-accent mb-1">CONSULTATION · 2 DAYS LEFT</div>
+          <div className="text-[10px] text-accent mb-1">CONSULTATION · 2 DAYS LEFT</div>
           <div className="text-[12px] font-semibold mb-2">Rework the campus shuttle routes</div>
           <div className="flex gap-2">
             <div className="flex-1 py-2 text-center rounded-full text-[11px] font-semibold border border-hair">Read brief</div>
@@ -32,7 +32,7 @@ export default function EngageMock() {
         </div>
 
         <div className="card p-3">
-          <div className="text-[10px] mono text-mute mb-1">POLL · LIVE</div>
+          <div className="text-[10px] text-mute mb-1">POLL · LIVE</div>
           <div className="text-[12px] font-semibold mb-2">More plant-based options in the canteen?</div>
           <div className="space-y-1.5">
             {[{l:'Yes', v:74, c:'var(--accent-4)'}, {l:'No', v:26, c:'var(--hair)'}].map((r) => (

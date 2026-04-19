@@ -2,8 +2,8 @@ import React from 'react'
 
 const societies = [
   { n: 'Photography Soc', m: '412 members', c: 'var(--accent)' },
-  { n: 'MUN Aston', m: '238 members', c: 'var(--accent-3)' },
-  { n: 'FC Aston', m: '680 members', c: 'var(--accent-4)' },
+  { n: 'Model UN', m: '238 members', c: 'var(--accent-3)' },
+  { n: 'Football', m: '680 members', c: 'var(--accent-4)' },
   { n: 'Drama Club', m: '156 members', c: 'var(--lilac)' },
   { n: 'Dev Society', m: '301 members', c: 'var(--accent-2)' },
   { n: 'Climbing', m: '94 members', c: 'var(--accent)' },
@@ -29,7 +29,7 @@ export default function SocietiesMock() {
             <div key={s.n} className="card p-2.5">
               <div className="w-full h-12 rounded-lg mb-2" style={{ background: s.c }} />
               <div className="text-[11px] font-semibold truncate">{s.n}</div>
-              <div className="text-[9px] mono text-mute mt-0.5">{s.m}</div>
+              <div className="text-[9px] text-mute mt-0.5">{s.m}</div>
             </div>
           ))}
         </div>

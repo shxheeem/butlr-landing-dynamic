@@ -21,8 +21,8 @@ export default function FeedMock() {
         <div className="card p-3 flex items-center gap-3">
           <div className="w-11 h-11 rounded-xl grid place-items-center text-lg" style={{ background: 'var(--accent)' }}>🎟</div>
           <div className="flex-1 min-w-0">
-            <div className="text-[11px] mono text-mute">TONIGHT · 8PM</div>
-            <div className="text-[13px] font-semibold truncate">Freshers Ball · Aston SU</div>
+            <div className="text-[11px] text-mute">TONIGHT · 8PM</div>
+            <div className="text-[13px] font-semibold truncate">Freshers Ball · Student Union</div>
           </div>
           <div className="text-[10px] font-bold px-2 py-1 rounded-full" style={{ background: 'var(--accent-2)' }}>RSVP</div>
         </div>
@@ -31,14 +31,14 @@ export default function FeedMock() {
           <div className="flex items-center gap-2 mb-2">
             <div className="w-6 h-6 rounded-lg" style={{ background: 'var(--accent-3)' }} />
             <div className="text-[11px] font-semibold">Photography Soc</div>
-            <div className="text-[9px] mono text-mute ml-auto">2h</div>
+            <div className="text-[9px] text-mute ml-auto">2h</div>
           </div>
-          <div className="text-[12px] leading-snug mb-2">Golden hour walk tomorrow — bring a camera or a phone, we'll show you the ropes.</div>
+          <div className="text-[12px] leading-snug mb-2">Golden hour walk tomorrow. Bring a camera or a phone, we'll show you the ropes.</div>
           <div className="rounded-lg h-16" style={{ background: 'linear-gradient(120deg, var(--accent-2), var(--accent))' }} />
         </div>
 
         <div className="card p-3">
-          <div className="text-[10px] mono text-accent-3 mb-1">STUDENT VOICE</div>
+          <div className="text-[10px] text-accent-3 mb-1">STUDENT VOICE</div>
           <div className="text-[12px] font-semibold mb-2">Should the library open 24/7 in term 2?</div>
           <div className="space-y-1.5">
             <div className="relative h-6 rounded-full bg-surface-2 overflow-hidden">

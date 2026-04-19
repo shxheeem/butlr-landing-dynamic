@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* ============================================================
-   CAMPUS DYNAMIC — Butlr brand tokens
+   CAMPUS DYNAMIC ,  Butlr brand tokens
    Palettes can be switched via data-palette on <html>
    ============================================================ */
 
@@ -94,7 +94,7 @@ body {
 #root { min-height: 100vh; background: var(--paper); }
 
 /* ============================================================
-   Type utilities — Inter Tight display system
+   Type utilities ,  Inter Tight display system
    ============================================================ */
 
 .display {
@@ -111,16 +111,24 @@ body {
   line-height: 0.92;
 }
 
+/* Small label ,  integrated sans, not monospace.
+   Uppercase + slight tracking keeps it reading as a label eyebrow
+   without the typewriter texture of mono. */
 .tag {
-  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-family: "Inter Tight", Inter, system-ui, sans-serif;
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--mute);
 }
 
-.mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+/* Kept as a hook for data-style labels, but aliased to the main sans.
+   No JetBrains Mono in the marketing site. */
+.mono {
+  font-family: "Inter Tight", Inter, system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
 
 /* ============================================================
    Brand components
@@ -167,19 +175,20 @@ body {
    Pills / chips / tags
    ============================================================ */
 
+/* Status pill ,  sentence case, sans-serif, integrated with the rest of the type.
+   Reads as a calm status marker, not a typewriter label. */
 .pill {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.4rem 0.85rem;
+  padding: 0.4rem 0.95rem;
   border-radius: 999px;
   background: var(--surface);
   border: 1px solid var(--hair);
-  font-family: "JetBrains Mono", ui-monospace, monospace;
-  font-size: 11px;
+  font-family: "Inter Tight", Inter, system-ui, sans-serif;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: -0.005em;
   color: var(--ink);
 }
 .pill--accent {
@@ -379,6 +388,54 @@ body {
   font-size: 0.85rem;
   letter-spacing: -0.01em;
   box-shadow: 0 6px 20px rgba(15, 17, 21, 0.08);
+}
+
+/* ============================================================
+   Editorial prose ,  blog post body
+   Narrow column, generous line-height, considered rhythm.
+   ============================================================ */
+
+.prose-butlr {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+.prose-butlr > p {
+  margin-top: 1.1em;
+  margin-bottom: 1.1em;
+}
+.prose-butlr > h2 {
+  font-family: "Inter Tight", Inter, sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-top: 2.4em;
+  margin-bottom: 0.6em;
+}
+.prose-butlr > h3 {
+  font-family: "Inter Tight", Inter, sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+.prose-butlr a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 60%, transparent);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+  transition: text-decoration-color 0.2s ease;
+}
+.prose-butlr a:hover {
+  text-decoration-color: var(--accent);
+}
+.prose-butlr > blockquote {
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 /* Spinning badge */
