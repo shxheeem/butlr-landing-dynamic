@@ -8,34 +8,36 @@ const ROLES = [
   'Other',
 ]
 
+const FALLBACK_EMAIL = 'pilot@butlr.xyz'
+
 /**
  * Shared pilot enquiry form. Used inside the PilotModal and on the /pilot page.
  * Stays dumb: owns its own submission state, calls `onSent` when done.
  */
 export default function PilotForm({ compact = false, onSent }) {
-  const [sent, setSent] = useState(false)
-  const [submitting, setSubmitting] = useState(false)
+  const [state, setState] = useState('idle') // idle | submitting | sent | error
   const firstFieldRef = useRef(null)
 
   const submit = async (e) => {
     e.preventDefault()
-    setSubmitting(true)
+    setState('submitting')
     const data = Object.fromEntries(new FormData(e.currentTarget).entries())
     try {
-      // STUB endpoint. Swap for real forwarder when ready.
-      await fetch('/api/lead', {
+      const res = await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
-      }).catch(() => {}) // swallow in dev, this is a stub
-      setSent(true)
+      })
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      setState('sent')
       onSent?.()
-    } finally {
-      setSubmitting(false)
+    } catch (err) {
+      console.error('Pilot form submission failed:', err)
+      setState('error')
     }
   }
 
-  if (sent) {
+  if (state === 'sent') {
     return (
       <div className={compact ? 'py-2' : 'py-8'}>
         <div className="tag mb-3">Thanks</div>
@@ -44,11 +46,13 @@ export default function PilotForm({ compact = false, onSent }) {
         </h3>
         <p className="text-mute leading-relaxed mt-3">
           Expect a reply within a couple of days, usually from a founder directly. If it's time-sensitive, email{' '}
-          <a href="mailto:pilot@butlr.app" className="text-ink underline decoration-accent/60 underline-offset-4">pilot@butlr.app</a>.
+          <a href={`mailto:${FALLBACK_EMAIL}`} className="text-ink underline decoration-accent/60 underline-offset-4">{FALLBACK_EMAIL}</a>.
         </p>
       </div>
     )
   }
+
+  const submitting = state === 'submitting'
 
   return (
     <form onSubmit={submit}>
@@ -110,6 +114,19 @@ export default function PilotForm({ compact = false, onSent }) {
         </button>
         <div className="text-[12px] text-mute">A founder will reply.</div>
       </div>
+
+      {state === 'error' && (
+        <div
+          role="alert"
+          className="mt-4 rounded-xl border border-hair bg-surface-2 px-4 py-3 text-[13px] leading-relaxed"
+        >
+          Something went wrong on our end. Please try again in a moment, or email{' '}
+          <a href={`mailto:${FALLBACK_EMAIL}`} className="text-ink underline decoration-accent/60 underline-offset-4">
+            {FALLBACK_EMAIL}
+          </a>{' '}
+          directly and we'll pick it up there.
+        </div>
+      )}
     </form>
   )
 }
