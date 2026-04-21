@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import { BrowserRouter, Routes, Route, Outlet, Navigate } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 import Navbar from './components/shell/Navbar'
 import Footer from './components/shell/Footer'
 import ScrollToTop from './components/shell/ScrollToTop'
@@ -32,6 +33,7 @@ function Shell() {
       </main>
       <Footer onContact={openModal} />
       <PilotModal open={open} onClose={closeModal} />
+      <Analytics />
     </div>
   )
 }
