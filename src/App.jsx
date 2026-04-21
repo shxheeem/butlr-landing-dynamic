@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import { BrowserRouter, Routes, Route, Outlet, Navigate } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 import Navbar from './components/shell/Navbar'
 import Footer from './components/shell/Footer'
 import ScrollToTop from './components/shell/ScrollToTop'
@@ -54,6 +55,7 @@ export default function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
+      <Analytics />
     </BrowserRouter>
   )
 }
