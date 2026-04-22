@@ -17,7 +17,7 @@ export default function Footer({ onContact }) {
           </div>
 
           <div className="md:col-span-3">
-            <div className="tag mb-4">Features</div>
+            <div className="tag mb-4">Products</div>
             <ul className="space-y-2.5 text-sm">
               <li><Link to="/" className="text-ink/80 hover:text-ink transition-colors">For students</Link></li>
               <li><Link to="/features/su" className="text-ink/80 hover:text-ink transition-colors">For student unions</Link></li>

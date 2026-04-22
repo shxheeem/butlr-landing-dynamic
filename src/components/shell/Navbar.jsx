@@ -113,7 +113,7 @@ export default function Navbar({ onContact }) {
                 featuresActive ? 'text-ink' : 'text-ink/70 hover:text-ink'
               }`}
             >
-              Features
+              Products
               <svg
                 width="10"
                 height="10"
@@ -211,7 +211,7 @@ export default function Navbar({ onContact }) {
             className="md:hidden border-t border-hair bg-paper/95 backdrop-blur overflow-hidden"
           >
             <div className="px-5 py-4 flex flex-col">
-              <div className="tag mb-2">Features</div>
+              <div className="tag mb-2">Products</div>
               {featureItems.map((item) => (
                 <NavLink
                   key={item.to}
