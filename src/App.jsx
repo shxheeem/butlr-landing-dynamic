@@ -56,6 +56,7 @@ export default function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
+      <Analytics />
     </BrowserRouter>
   )
 }
